@@ -23,7 +23,7 @@ npm i <dependencia>
 ```
 createUser(user:<user>,pwd:<password>,roles[{role:<role>},{db:<database>}])
 ```
-Usado para o teste: createUser(user:teste,pwd:123456,roles[{role:userAdmin},{db:local}])
+_Usado para o teste: `createUser(user:teste,pwd:123456,roles[{role:userAdmin},{db:local}])`_
 
 2. Rodar localmente (É necessário ter os programas instalados com as dependências)
 - Antes de tudo, alterar no caminho `./config/local/env.js` os campos `user`, `password` e `dbName` se já tiver algum local. Se você seguiu com o passo 1, não precisa alterar
@@ -33,7 +33,7 @@ npm run dev
 ```
 
 3. Testando as rotas
-Lembrando que para todos, é só substituir o :category pela categoria desejada
+Lembrando que para todos, é só substituir o `:category` pela categoria desejada
 
 - Para buscar uma categoria de livros no site e popular o banco de dados:
 ```
@@ -43,11 +43,11 @@ localhost:5000/scrap_category/:category
 ```
 /delete_category/:category
 ```
-- Para procurar um certo número de uma categoria de livros, com possibilidade de forçar uma busca no site  (substituindo value por um número e boolean por true ou false):
+- Para procurar um certo número de uma categoria de livros, com possibilidade de forçar uma busca no site  (substituindo `value` por um __número inteiro positivo__ e `boolean` por _true_ ou _false_):
 ```
 /find_books/:category?number=value&flag=boolean
 ```
-Para procurar os livros de uma certa categoria que estão com estoque abaixo de um certo valor (substituindo value por um número):
+Para procurar os livros de uma certa categoria que estão com estoque abaixo de um certo valor (substituindo `value` por um __número inteiro positivo__):
 ```
 /find_books_under_stock/:category?number=value
 ```
