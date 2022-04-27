@@ -32,7 +32,7 @@ _Usado para o teste: `createUser(user:teste,pwd:123456,roles[{role:userAdmin},{d
 npm run dev
 ```
 
-3. Testando as rotas
+3. Testando as rotas no seu navegador
 Lembrando que para todos, é só substituir o `:category` pela categoria desejada
 
 - Para buscar uma categoria de livros no site e popular o banco de dados:
