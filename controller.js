@@ -59,10 +59,6 @@ async function findBooksUnderStock(req,res){
 
 }
 
-
-
-
-
 module.exports = {
     scrapCategory,
     findBooks,

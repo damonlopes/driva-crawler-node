@@ -1,7 +1,14 @@
 const { MongoClient } = require('mongodb');
 const config = require('./env');
 const mongoURL = config.mongoDB.url
-const client = new MongoClient(mongoURL);
+const username = encodeURIComponent(config.mongoDB.user)
+const password = encodeURIComponent(config.mongoDB.password)
+
+const mongoURI =  `mongodb://${username}:${password}@${mongoURL}/`
+
+console.log(mongoURI);
+
+const client = new MongoClient(mongoURI);
 const dbName = config.mongoDB.dbName
 
 client.connect();
@@ -17,8 +24,7 @@ async function insertDB(data){
             return
         }
         collection.insertOne(d)
-    })
-    console.log('Inserted documents');   
+    })  
 }
 
 async function deleteDB(categoryBook){
@@ -30,10 +36,9 @@ async function findBooksDB(categoryBook, numberStock = null){
         Categoria: categoryBook,
         Estoque: {$lt:numberStock}
     }
-    if(!(query.Estoque) || query.Estoque < 0){
+    if(!(query.Estoque.$lt) || (query.Estoque.$lt < 0)){
         delete query.Estoque
     }
-    console.log(query);
     const queryBook = await collection.find(query).toArray();
     return queryBook;
 }

@@ -1,5 +1,5 @@
-const path = './config/' + (process.env.NODE_ENV||'local') + '/env'
+const environment = process.env.NODE_ENV||'local'
 
-const config = require(path)
+const config = require(`./config/${environment}/env`)
 
 module.exports = config
