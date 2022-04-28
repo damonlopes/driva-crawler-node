@@ -13,7 +13,8 @@ Para instalar cada dependência rodar no cmd:
 ```
 npm i <dependencia>
 ```
-### Rodar localmente
+### Para rodar a API
+#### O passo 1 é para configurar localmente, se não for o caso pode ir para o passo 2
 
 1. Criar usuário no banco do mongoDB _(se já tiver um, ir para o passo adiante)_:
 - Pelo cmd, ir até o local da pasta de instalação do mongo e ir no seguinte caminho
@@ -25,13 +26,16 @@ createUser(user:<user>,pwd:<password>,roles[{role:<role>},{db:<database>}])
 ```
 _Usado para o teste: `createUser(user:teste,pwd:123456,roles[{role:userAdmin},{db:local}])`_
 
-2. Rodar localmente _(É necessário ter os programas instalados com as dependências)_:
+2. Rodar o projeto _(É necessário ter os programas instalados com as dependências)_:
 - Antes de tudo, alterar no caminho `./config/local/env.js` os campos `user`, `password` e `dbName` se já tiver algum local. Se você seguiu com o passo 1, não precisa alterar
 - Após isso, para inicializar o banco localmente é só ir na janela de comando e rodar:
 ```
 npm run dev
 ```
-
+- Se for para inicializar ele conectando no banco da Driva, é só ir na janela de comando e rodar:
+```
+npm start
+```
 3. Testando as rotas no seu navegador _(Lembrando que para todos, é só substituir o `:category` pela categoria desejada)_:
 
 - Para buscar uma categoria de livros no site e popular o banco de dados:
@@ -40,17 +44,15 @@ localhost:5000/scrap_category/:category
 ```
 - Para excluir uma categoria de livros no banco:
 ```
-/delete_category/:category
+localhost:5000/delete_category/:category
 ```
 - Para procurar um certo número de uma categoria de livros, com possibilidade de forçar uma busca no site  (substituindo `value` por um __número inteiro positivo__ e `boolean` por _true_ ou _false_):
 ```
-/find_books/:category?number=value&flag=boolean
+localhost:5000/find_books/:category?number=value&flag=boolean
 ```
 Para procurar os livros de uma certa categoria que estão com estoque abaixo de um certo valor (substituindo `value` por um __número inteiro positivo__):
 ```
-/find_books_under_stock/:category?number=value
+localhost:5000/find_books_under_stock/:category?number=value
 ```
-### Rodar no servidor
-Olha, não consegui fazer o teste no servidor, porém idealmente seria seguir o mesmo roteiro da seção anterior, pulando o passos 1 e 2, e em vez de usar `npm run dev`, utilizar o `npm start` que já puxa a rota do banco da Driva.
 
 Vale também notar que _não foi feito esse projeto em docker, então talvez a configuração do Dockerfile esteja errada_
