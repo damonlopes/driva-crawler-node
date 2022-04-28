@@ -46,7 +46,12 @@ async function findBooks(req,res){
     }
     
     let data = await mongo.findBooksDB(category);
-    const books = data.slice(0, numberBooks);
+    if(numberBooks > 0){
+        books = data.slice(0, numberBooks);
+    }
+    else{
+        books = data;
+    }
     res.status(200).send(books);
 }
 
