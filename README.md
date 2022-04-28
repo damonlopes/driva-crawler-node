@@ -15,7 +15,7 @@ npm i <dependencia>
 ```
 ### Rodar localmente
 
-1. Criar usuário no banco do mongoDB (se já tiver um, ir para o passo adiante)
+1. Criar usuário no banco do mongoDB _(se já tiver um, ir para o passo adiante)_:
 - Pelo cmd, ir até o local da pasta de instalação do mongo e ir no seguinte caminho
 ```/MongoDB/Server/<version>/bin/```
 - Após isso, rodar no cmd o comando `mongo` para iniciar o terminal do mongo
@@ -25,15 +25,14 @@ createUser(user:<user>,pwd:<password>,roles[{role:<role>},{db:<database>}])
 ```
 _Usado para o teste: `createUser(user:teste,pwd:123456,roles[{role:userAdmin},{db:local}])`_
 
-2. Rodar localmente (É necessário ter os programas instalados com as dependências)
+2. Rodar localmente _(É necessário ter os programas instalados com as dependências)_:
 - Antes de tudo, alterar no caminho `./config/local/env.js` os campos `user`, `password` e `dbName` se já tiver algum local. Se você seguiu com o passo 1, não precisa alterar
 - Após isso, para inicializar o banco localmente é só ir na janela de comando e rodar:
 ```
 npm run dev
 ```
 
-3. Testando as rotas
-Lembrando que para todos, é só substituir o `:category` pela categoria desejada
+3. Testando as rotas no seu navegador _(Lembrando que para todos, é só substituir o `:category` pela categoria desejada)_:
 
 - Para buscar uma categoria de livros no site e popular o banco de dados:
 ```
